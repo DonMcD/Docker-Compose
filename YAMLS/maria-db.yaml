@@ -1,0 +1,18 @@
+version: '3'
+volumes:
+  data:
+services:
+  db:
+    network_mode: "host" 
+    image: mariadb:latest
+    container_name: maria_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: database_name
+      MYSQL_USER: username
+      MYSQL_PASSWORD: root_password
+    volumes:
+      - /home/username/docker/mariadb:/var/lib/mysql
+    ports:
+      - "3306:3306"
